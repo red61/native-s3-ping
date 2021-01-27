@@ -1,3 +1,5 @@
+Built for EAP 7.3
+
 # NATIVE_S3_PING
 
 Discovery protocol using AWS S3 buckets as cluster information store. Based on the original code written by
