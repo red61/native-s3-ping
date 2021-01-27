@@ -4,11 +4,11 @@
     <artifactId>native-s3-ping</artifactId>
     <packaging>bundle</packaging>
     <name>native-s3-ping</name>
-    <version>1.0.0.Final</version>
+    <version>1.0.0.Final.EAP73</version>
     <url>http://www.github.com/jgroups-extras/native-s3-ping</url>
 
     <properties>
-        <jgroups.version>4.2.4.Final</jgroups.version>
+        <jgroups.version>4.1.4.Final</jgroups.version>
         <aws.version>1.11.708</aws.version>
         <!-- nexus-staging-maven-plugin -->
         <autoReleaseAfterClose>true</autoReleaseAfterClose>
@@ -154,7 +154,7 @@
                </includes>
             </resource>
         </resources>
-        <plugins>
+        <plugins>     
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -293,6 +293,23 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.2</version>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
         </plugins>
         <pluginManagement>
             <plugins>
